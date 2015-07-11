@@ -1,0 +1,115 @@
+\documentclass[letterpaper,14pt,oneside]{extarticle}
+
+\usepackage{textcomp}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{enumitem} 	% for left justifying itemized list
+
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks,urlcolor=blue}
+
+\def\Plus{\texttt{+}}
+\def\Minus{\texttt{-}}
+
+\newenvironment{nscenter}
+	{\parskip=0pt\par\nopagebreak\centering}
+	{\par\noindent\ignorespacesafterend}
+
+
+
+
+
+\begin{document}
+\begin{nscenter}
+\Huge \bfseries Python Lab 0 \\
+\vspace{6pt}
+\Large \bfseries July 11, 2015\\
+\end{nscenter}
+
+\vspace{20pt}
+
+The goal of this lab is to get you installing \texttt{Python} and everything else you need, and then making your first program (\texttt{Hello World}). As a bonus, there's also a part on making a \texttt{Github} account. You should really do this, it's good for getting a job.
+
+\begin{enumerate}[leftmargin=*]
+\item Download/install \texttt{Python} (make sure it's version \texttt{3.x.x}, not version \texttt{2.x.x})
+
+\item Download a text editor. I like \texttt{gVim}, but there's a learning curve. \texttt{Notepad++} or \texttt{gedit} is easier, but not as useful. You can be noob and use the simple Windows \texttt{Notepad} or the equivalent for Macs, but it's not built for coding. Don't be a noob, do things properly from the start.
+
+\item \textit{Optional}: Download a nice terminal GUI. You'll be using the terminal/command prompt a lot to run Python. For example, the command prompt in Windows, the GUI isn't very good (you can't resize the windows, the colours are weird, etc.). I like to use \texttt{Console2} on Windows, which I can resize and customize the colours so it looks nicer (see \href{http://www.hanselman.com/blog/Console2ABetterWindowsCommandPrompt.aspx}{here}).
+
+\item \textit{For Windows only}: Download \texttt{Cygwin}, or its lightweight alternative, \texttt{GNU On Windows} (\texttt{GOW}). CS people usually use \texttt{UNIX} commands (e.g. Linux, Mac OS) for telling the command prompt/OS what to do. Windows uses a different system (\texttt{DOS}). I prefer using Windows as my native OS, but I install the \texttt{UNIX} commands so I can use them in Windows. That's what \texttt{Cygwin} does. But I find it a bit too big, and to start off you'll only need a few commands, so \texttt{GOW} is easier to use. I'd recommend that \url{https://github.com/bmatzelle/gow}.
+
+Once you have that installed, you should test it out. Open your terminal (e.g. \texttt{Console2}) and try commands like \texttt{cd} (change directory, i.e. folders), \texttt{ls} (list files in a directory), \texttt{pwd} (path to working directory, i.e. the current folder).  Try to explore the different folders on your computer from the command line using these commands. Other useful commands are \texttt{mv} (move files from one directory to another), \texttt{cp} (copy files from one place to another), and \texttt{rm} (remove files... be careful you don't delete important files/folders with this one).
+
+\item Make sure your \texttt{Python} is installed correctly and recognized by the OS. In your command prompt (after \texttt{Cygwin} or \texttt{GOW} is installed), type:
+
+\texttt{>> which python}
+
+(Don't type the \texttt{>>}, that symbolizes command prompt input)
+
+The \texttt{which} command is a \texttt{UNIX} command which returns where the OS thinks the executable (in this case, \texttt{python}) is installed. It should return the path to wherever you installed it. For example, I see:
+
+\texttt{E:\textbackslash Programs\textbackslash Python3.3.2\textbackslash python.EXE}
+
+because I installed \texttt{Python} in the \texttt{E:\textbackslash Programs\textbackslash Python3.3.2\textbackslash} directory.
+
+Note, when you type in \texttt{python} in the command line, it really runs \texttt{python.EXE}. You could type the \texttt{.EXE} if you wanted to, but you don't have to.
+
+To make sure you have the right version, type:
+
+\texttt{>> python --version}
+
+This runs python with the \texttt{--version} flag. Basically this is a built-in function of \texttt{python} asking it to return what version it is. Make sure it is at least version \texttt{3.x.x}.
+
+\item Write your first \texttt{Python} program. Open your text editor and type in:
+\newline\newline
+\texttt{print("Hello World!")}
+\newline\newline
+Save this file as \texttt{\textit{hello.py}}. Keep note of the path of this file (i.e. the directory). Open up your terminal/command prompt and \texttt{cd} to that directory. Type \texttt{ls} to list all the files there, your \texttt{\textit{hello.py}} should be there. Once you're there, type the following:
+
+\texttt{>> python hello.py}
+
+You should see the output in the terminal on the following line as:
+
+\texttt{Hello World!}
+
+Congrats! You wrote your first \texttt{Python} program!
+
+\end{enumerate}
+
+\newpage
+\begin{flushleft}
+\large {\bfseries Bonus: Create a Github Account}
+\end{flushleft}
+
+\normalsize
+ When you write an essay, you probably have one Word document that you make changes to and save. Maybe you save different versions of it as you go, but usually people just have that one copy. Now let's say you write a version on Monday, add a new paragraph on Tuesday and overwrite another one on Wednesday, but you realize you did something wrong and want to go back to the version you had on Monday. If you only had one saved copy of that essay, you're shit out of luck - you'll have to rewrite the version you had on Monday (if you remember what it even was).
+\newline
+
+Instead of an essay, imagine it's software code for a program. If you have a version of your code working, and you add stuff/make changes that screws it up, it'd be good to: 1) know what those changes were, and 2) be able to revert to the working version. Computer scientists and software engineers do this using \texttt{version control}. There are several different programs to do this: \texttt{svn}, \texttt{git}, and \texttt{Perforce} to name a few. \texttt{Perforce} is popular for companies like Facebook and Google (I used it at Altera too), but it costs a lot of money. For open-source, \texttt{git} is the most popular. You can ask Dad what he uses; he's worked at different companies so I'd imagine he's familiar with many different types of version control.
+\newline
+
+Working with \texttt{git} is easy. You \texttt{clone} the latest version of the repository to your local computer. You make changes to a file (or a collection of files), and save that as a version, or a \texttt{commit}. Then you upload or \texttt{push} that to the repository. You save the files into an online repository, the most popular being \texttt{Github}. This repository saves the different versions you've worked in chronologically, and what the differences between each version was (so you can see what was changed that's causing issues).
+\newline
+
+Try it. Create a \texttt{Github} account (\url{www.github.com}). This is your online code repository. Follow the \href{https://guides.github.com/activities/hello-world/}{official \texttt{Github Hello World} tutorial}, it takes about 10 min. Once you do that, try to install \texttt{git} on your computer. If you don't want to use \texttt{git} from the command-line, there's a nice \texttt{GitHub} GUI which you can install and sync with your account.
+\newline
+
+Once you have it up and running, try to submit the code you just wrote. Go to my \texttt{Github} repository, \href{https://github.com/sinaptix/learnpython}{\texttt{learnpython}}. Clone this repo to your local machine. You'll notice a folder called \texttt{example\_student}, with a sub-folder \texttt{lab00\_submission}. There is a single file there, the \texttt{\textit{hello.py}} file.
+\newline
+
+Do something similar to submit your \texttt{\textit{hello.py}} file. At the top-level directory of the repository, create a folder with your \texttt{Github} username (instead of \texttt{example\_student}). Then create the \texttt{lab00\_submission} and put your program there. Commit this file and push it to the repo. Once it's done, we should be able to see it online. I will write a script to test your program and make sure it gives the correct output.
+\newline
+
+You can make your own repos and work on your own code. You can make repos public so people can see your work. It's useful for getting jobs, you can show employers what you've worked on if you want to try for internships next summer.
+\newline
+
+\begin{flushleft}
+\textcopyright\enspace Wahid R. July 11, 2015
+\end{flushleft}
+
+\end{document}
